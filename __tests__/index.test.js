@@ -4,7 +4,7 @@ const {
   decryptElement,
   groupingSymbol,
   serialValidator,
-} = require("../answer.js");
+} = require("../index.js");
 const Restriction = require("hacktiv8-restriction");
 
 describe("Serial Validator", () => {
