@@ -1,102 +1,102 @@
 function splitString(str) {
   // Your code here
-  let output = []
-  let number = ''
+  let output = [];
+  let number = "";
 
   for (let i = 0; i <= str.length; i++) {
-    if (str[i] === ' ' || str[i] === undefined) {
-      output.push(number)
-      number = ''
+    if (str[i] === " " || str[i] === undefined) {
+      output.push(number);
+      number = "";
     } else {
-      number += str[i]
+      number += str[i];
     }
   }
 
-  return output
+  return output;
 }
 
 function reverseOddIndex(arr) {
   // Your code here
-  let output = []
+  let output = [];
 
   for (let i = 0; i < arr.length; i++) {
     if (i % 2 === 1) {
-      let reverse = ''
+      let reverse = "";
   
       for (let j = arr[i].length - 1; j >= 0; j--) {
-        reverse += arr[i][j]
+        reverse += arr[i][j];
       }
   
-      output.push(reverse)
+      output.push(reverse);
     } else {
-      output.push(arr[i])
+      output.push(arr[i]);
     }
   }
 
-  return output
+  return output;
 }
 
 function decryptElement(arr) {
   // Your code here
-  let output = []
-  let symbol = '!@#$%^&*()'
+  let output = [];
+  let symbol = "!@#$%^&*()";
 
   for (let i = 0; i < arr.length; i++) {
-    let decrypt = ''
+    let decrypt = "";
     
     for (let j = 0; j < arr[i].length; j++) {
-      let index = Number(arr[i][j])
+      let index = Number(arr[i][j]);
 
       if (i % 2 === 1) {
         if (index === 0) {
-          index = 9
+          index = 9;
         } else {
-          index -= 1
+          index -= 1;
         }
       }
 
-      decrypt += symbol[index]
+      decrypt += symbol[index];
     }
 
-    output.push(decrypt)
+    output.push(decrypt);
   }
 
-  return output
+  return output;
 }
 
 function groupingSymbol(arr) {
   // Your code here
-  let output = []
+  let output = [];
 
   for (let i = 0; i < arr.length; i += 2) {
-    let temp = []
+    let temp = [];
     for (let j = 0; j < 2; j++) {
-      temp.push(arr[i + j])
+      temp.push(arr[i + j]);
     }
-    output.push(temp)
+    output.push(temp);
   }
 
-  return output
+  return output;
 }
 
 function serialValidator(str) {
   // Your code here
   if (String(str).length < 9) {
-    return 'Harus lebih dari 9 karakter'
+    return "Harus lebih dari 9 karakter";
   }
 
-  let splitted = splitString(str)
-  let reversed = reverseOddIndex(splitted)
-  let decrypted = decryptElement(reversed)
-  let grouped = groupingSymbol(decrypted)
+  let splitted = splitString(str);
+  let reversed = reverseOddIndex(splitted);
+  let decrypted = decryptElement(reversed);
+  let grouped = groupingSymbol(decrypted);
 
   for (let i = 0; i < grouped.length; i++) {
     if (grouped[i][0] !== grouped[i][1]) {
-      return 'Invalid serial number'
+      return "Invalid serial number";
     }
   }
 
-  return 'Serial number is valid'
+  return "Serial number is valid";
 }
 
 console.log(serialValidator("1234"));
