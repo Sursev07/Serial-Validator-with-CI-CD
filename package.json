@@ -9,7 +9,8 @@
         "jest": "26.4.2"
     },
     "scripts": {
-        "test": "jest --detectOpenHandles --forceExit"
+        "test": "jest --detectOpenHandles --forceExit",
+        "lint": "eslint ."
     },
     "jest": {
         "reporters": [
